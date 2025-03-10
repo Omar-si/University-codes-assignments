@@ -1,0 +1,197 @@
+//Task 11\\
+
+     //Task 2.1
+public class Main {
+    public static void main(String[] args) {
+        int l = 10;
+        System.out.println(l);
+
+
+     //Task 2.2
+        int k = 5;
+        int sum = l + k;
+        System.out.println(sum);
+
+     //Task 2.3
+
+        int product = l * k;
+        int divide = l / k;
+
+        System.out.println(product);
+        System.out.println(divide);
+
+
+     //Task 2.4
+        double j = 10.5;
+        System.out.println(j);
+
+        double h = 5.5;
+        double sum2 = h+j;
+        double pro = h*j;
+        double div = h/j;
+        System.out.println(sum2);
+        System.out.println(pro);
+        System.out.println(div);
+
+
+     //Task 2.5
+        double sum3 = l + h;
+        double pro3 = h*l;
+        double div3 = h/l;
+        System.out.println(sum3);
+        System.out.println(pro3);
+        System.out.println(div3);
+
+
+     //Task 2.6
+        String s = "Hello";
+        String t = "World";
+        System.out.println(s+" "+t);
+        System.out.println(s+" "+t+" "+l);
+    }
+}
+
+
+
+
+//Task 12\\
+
+public class Main {
+    public static void main(String[] args) {
+    int r = 4;
+    double circum = 2 * r * Math.PI;
+    double area = Math.PI * r * r;
+    System.out.println(circum);
+    System.out.println(area);
+    }
+}
+
+
+
+//Task 13\\
+
+public class Main {
+    public static void main(String[] args) {
+        int digit = 1234;
+        int lastDigit = digit % 10;
+        System.out.println(lastDigit);
+    }
+}
+
+
+//Task 14\\
+
+public class Main {
+    public static void main(String[] args) {
+        int inch = 1000;
+        double meter = inch * 0.0254;
+        System.out.println(meter + " meters");
+    }
+}
+
+
+//Task 15\\
+
+//Task 15a
+   public class Main {
+    public static void main(String[] args) {
+        int l = 10;
+        int k = 5;
+        int j = k;
+        k = l;
+        l = j;
+        System.out.println(l);
+        System.out.println(k);
+
+      }
+   }
+//Task 15b
+   public class Main {
+        public static void main(String[] args) {
+                int l = 5;
+                int k = 10;
+                l = l + k;
+                k = l - k;
+                l = l - k;
+                System.out.println(l);
+                System.out.println(k);
+          }
+      }
+
+
+//Task 16\\
+
+public class Main {
+    public static void main(String[] args) {
+        int givenMiutes=3456789;
+        int years=givenMiutes/(365*24*60);
+        int remainigMins=givenMiutes%(60*24*365);
+        int days=remainigMins/(60*24);
+        System.out.println(givenMiutes + " minutes" + " is approximately "+ years + " years and "+ days + " days");
+    }
+}
+
+
+
+//Task 17\\
+
+public class Main {
+    public static void main(String[] args) {
+    int x = 2;
+    int y = 5;
+    int z = 8;
+    int mult = 2*y;
+    int sub = z-x;
+    int div = sub / 3;
+    int total = (mult * div) + 7;
+    System.out.println(total);
+    }
+}
+
+
+
+//Task 18\\
+
+public class Main {
+    public static void main(String[] args) {
+    int id = 24301398;
+    int last2digits = 24301398 % 100;
+    int digit1 = last2digits / 10;
+    int digit2 = last2digits % 10;
+    System.out.println(digit1);
+    System.out.println(digit2);
+    }
+}
+
+
+//Task 19\\
+
+public class Main {
+    public static void main(String[] args) {
+        int a=8;
+        int b=3;
+        double perpendicular=a/2;
+        double hypotenuse=Math.sqrt(perpendicular*perpendicular+b*b);
+        double circum=6*hypotenuse;
+        System.out.println(circum);
+    }
+}
+
+
+
+//Task 20\\
+
+public class Main{
+  public static void main (String[]args){
+    float a =4.5f;
+    float b= 9.5f;
+    double c= Math.sqrt((b*b)+(a*a));
+    System.out.println("SinA:"+(a/c));
+    System.out.println("SinB:"+(b/c));
+    System.out.println("CosA:"+(b/c));
+    System.out.println("CosB:"+(a/c));
+   }
+}
+
+
+

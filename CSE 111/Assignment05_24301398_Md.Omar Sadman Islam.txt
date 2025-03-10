@@ -1,0 +1,898 @@
+[{(SONG CLASS)}]
+
+//1\\
+public class Song{
+    public String Sname;
+    public String Sartist;
+    public int Slength;
+    public Song nextSong;
+    public Song preSong;
+    public String Singer;
+    public Song(String name, String singer, int size){
+        Sname = name;
+        Sartist = singer;
+        Slength = size;
+    }
+    public void songInfo(){
+        System.out.println("Title: "+Sname);
+        System.out.println("Artist: "+Sartist);
+        System.out.println("Length: "+Slength+" minutes");
+    }
+}
+
+
+
+
+
+
+
+[{(PLAYLIST CLASS)}]
+
+//2\\
+public class Playlist {
+  public String Pname;
+  public Playlist(String name) {
+       Pname = name;
+	System.out.println("First Playlist created.");
+ }
+}
+
+
+
+//3&4\\
+
+public class Playlist {
+    public String Pname;
+    public String Sname;
+    public Song fstSong;
+
+    public Playlist(String name) {
+        Pname = name;
+        System.out.println("First Playlist created.");
+    }
+    public void info() {
+        System.out.println(Pname + " has the following songs:");
+        if (fstSong == null) {
+            System.out.println("No songs in " + Pname + ".");
+        } else {
+            Song lastSong = fstSong;
+            int Scount = 1;
+            while (lastSong != null) {
+                System.out.println("Song-" + Scount);
+                lastSong.songInfo();
+                Scount++;
+                lastSong = lastSong.nextSong;
+            }
+        }
+    }
+
+    public void addSong(Song name) {
+        if (fstSong == null) {
+            fstSong = name;
+        } else {
+            Song lastSong = getLastSong();
+            lastSong.nextSong = name;
+        }
+        System.out.println(name.Sname + " added to " + Sname + ".");
+    }
+
+    Song getLastSong() {
+        Song lastSong = fstSong;
+        while (true) {
+            if (lastSong.nextSong != null) {
+                lastSong = lastSong.nextSong;
+            } else {
+                break;
+            }
+        }
+        return lastSong;
+    }
+}
+
+
+
+
+
+//5\\
+
+public class Playlist {
+    public String Pname;
+    public String Sname;
+    public Song fstSong;
+        public Playlist(String n){
+            Pname = n;
+            System.out.println("First Playlist created.");
+        }
+        public void info(){
+            System.out.println(Pname+" has the following songs:");
+            if(fstSong == null){
+                System.out.println("No songs in "+Pname+".");
+            }
+            else{
+                Song lastSong = fstSong;
+                int count = 1;
+                while(lastSong != null){
+                    System.out.println("Song-"+count);
+                    lastSong.songInfo();
+                    count++;
+
+                    lastSong = lastSong.nextSong;
+                }
+            }
+        }
+        public void addSong(Song s){
+            if(fstSong == null){
+                fstSong = s;
+            }
+            else{
+                Song lastSong = getLastSong();
+                lastSong.nextSong = s;
+                s.preSong = lastSong;
+            }
+            System.out.println(s.Sname+" added to "+Pname+".");
+        }
+        public void addSong(Song s, int index){
+            if(fstSong == null && index == 0){
+                fstSong = s;
+            }
+            else{
+                int i = 0;
+                Song cSong = fstSong;
+                while(true){
+                    if(i==index){
+                        insertIn(cSong, s);
+                        break;
+                    }
+                    if(cSong == null){
+                        System.out.println("Cannot add song to Index "+index+".");
+                        break;
+                    }
+                    cSong = cSong.nextSong;
+                    i++;
+                }
+            }
+        }
+        void insertIn(Song cSong, Song s){
+            if(cSong == null){
+                addSong(s);
+                return;
+            }
+            Song cP = cSong.preSong;
+            if(cP == null){
+                fstSong = s;
+            }
+            else{
+                cP.nextSong = s;
+                s.preSong = cP;
+            }
+            s.nextSong = cSong;
+            System.out.println(s.Sname+" added to "+Pname+".");
+        }
+        Song getLastSong(){
+            Song lastSong = fstSong;
+            while(true){
+                if(lastSong.nextSong != null){
+                    lastSong = lastSong.nextSong;
+                }
+                else{
+                    break;
+                }
+            }
+            return lastSong;
+        }
+   }
+
+
+
+
+
+
+
+//6\\
+public class Playlist {
+    public String Pname;
+    public Song fstSong;
+    public Playlist(String n){
+        Pname = n;
+        System.out.println("First Playlist created.");
+    }
+    public void info(){
+        System.out.println(Pname+" has the following songs:");
+        if(fstSong == null){
+            System.out.println("No songs in "+Pname+".");
+        }
+        else{
+            Song lastSong = fstSong;
+            int count = 1;
+            while(lastSong != null){
+              System.out.println("Song-"+count);
+               lastSong.songInfo();
+                count++;
+                lastSong = lastSong.nextSong;
+            }
+        }
+    }
+    public void addSong(Song s){
+        if(fstSong == null){
+            fstSong = s;
+        }
+        else{
+           Song lastSong = getLastSong();
+           lastSong.nextSong = s;
+             s.preSong = lastSong;
+        }
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+    public void addSong(Song s, int index){
+        if(fstSong == null && index == 0){
+            fstSong = s;
+        }
+        else{
+          int i = 0;
+           Song cSong = fstSong;
+           while(true){
+              if(i==index){
+                  insertIn(cSong, s);
+                   break;
+              }
+                 if(cSong == null){
+                     System.out.println("Cannot add song to Index "+index+".");
+                  break;
+                }
+                cSong = cSong.nextSong;
+                i++;
+            }
+        }
+    }
+    public void playSong(String nm){
+        Song cSong = fstSong;
+        while(true){
+          if(cSong == null){
+             System.out.println(nm+" not found in playlist "+Pname+".");
+               break;
+            }
+            if(cSong.Sname == nm){
+                System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+                break;
+            }
+            cSong = cSong.nextSong;
+        }
+    }
+    void insertIn(Song cSong, Song s){
+        if(cSong == null){
+            addSong(s);
+            return;
+        }
+        Song cP = cSong.preSong;
+        if(cP == null){
+            fstSong = s;
+        }
+        else{
+            cP.nextSong = s;
+            s.preSong = cP;
+        }
+        s.nextSong = cSong;
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+    Song getLastSong(){
+        Song lastSong = fstSong;
+        while(true){
+            if(lastSong.nextSong != null){
+                lastSong = lastSong.nextSong;
+            }
+            else{
+                break;
+            }
+        }
+        return lastSong;
+    }
+}
+
+
+
+
+
+
+
+//7\\
+public class Playlist {
+    public String Pname;
+    public Song fstSong;
+    public Playlist(String n){
+        Pname = n;
+        System.out.println("First Playlist created.");
+    }
+    public void info() {
+        System.out.println(Pname+" has the following songs:");
+        if(fstSong == null) {
+            System.out.println("No songs in "+Pname+".");
+        }
+        else {
+         Song lastSong = fstSong;
+          int count = 1;
+         while(lastSong != null) {
+           System.out.println("Song-"+count);
+              lastSong.songInfo();
+            count++;
+            lastSong = lastSong.nextSong;
+            }
+        }
+    }
+    public void addSong(Song s) {
+        if(fstSong == null) {
+            fstSong = s;
+        }
+        else {
+            Song lastSong = getLastSong();
+            lastSong.nextSong = s;
+            s.preSong = lastSong;
+        }
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+    public void addSong(Song s, int index) {
+        if(fstSong == null && index == 0) {
+            fstSong = s;
+        }
+        else {
+          int i = 0;
+         Song cSong = fstSong;
+           while(true) {
+              if(i==index) {
+             insertIn(cSong, s);
+                  break;
+                }
+                if(cSong == null) {
+             System.out.println("Cannot add song to Index "+index+".");
+                 break;
+                }
+               cSong = cSong.nextSong;
+                i++;
+            }
+        }
+    }
+    public void playSong(String nm) {
+        Song cSong = fstSong;
+        while(true) {
+         if(cSong == null) {
+             System.out.println(nm+" not found in playlist "+Pname+".");
+               break;
+            }
+          if(cSong.Sname == nm) {
+              System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+            break;
+          }
+            cSong = cSong.nextSong;
+        }
+    }
+    public void playSong(int index) {
+        Song cSong = fstSong;
+        int i = 0;
+        while(true) {
+            if(cSong == null) {
+              System.out.println("Song at Index "+index+" not found in playlist "+Pname+".");
+               break;
+            }
+            if(i == index) {
+              System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+              break;
+            }
+            i++;
+            cSong = cSong.nextSong;
+        }
+    }
+    void insertIn(Song cSong, Song s) {
+        if(cSong == null) {
+         addSong(s);
+          return;
+        }
+        Song cP = cSong.preSong;
+        if(cP == null) {
+            fstSong = s;
+        }
+        else {
+        cP.nextSong = s;
+         s.preSong = cP;
+        }
+        s.nextSong = cSong;
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+    Song getLastSong() {
+        Song lastSong = fstSong;
+      while(true) {
+         if(lastSong.nextSong != null) {
+            lastSong = lastSong.nextSong;
+          }
+           else {
+          break;
+            }
+        }
+        return lastSong;
+    }
+}
+
+
+
+
+
+
+//8\\
+public class Playlist {
+    public String Pname;
+    public Song fstSong;
+    public Playlist(String n) {
+        Pname = n;
+        System.out.println("First Playlist created.");
+    }
+    public void info() {
+        System.out.println(Pname+" has the following songs:");
+        if(fstSong == null) {
+            System.out.println("No songs in "+Pname+".");
+        }
+        else {
+            Song lastSong = fstSong;
+            int count = 1;
+            while(lastSong != null) {
+                System.out.println("Song-"+count);
+                lastSong.songInfo();
+                count++;
+
+                lastSong = lastSong.nextSong;
+            }
+        }
+    }
+    public void addSong(Song s) {
+        if(fstSong == null) {
+            fstSong = s;
+        }
+        else {
+            Song lastSong = getLastSong();
+            lastSong.nextSong = s;
+            s.preSong = lastSong;
+        }
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+   public void addSong(Song s, int index) {
+    if(fstSong == null && index == 0) {
+       fstSong = s;
+     }
+     else {
+       int i = 0;
+       Song cSong = fstSong;
+         while(true) {
+           if(i==index) {
+          insertIn(cSong, s);
+            break;
+          }
+           if(cSong == null) {
+            System.out.println("Cannot add song to Index "+index+".");
+              break;
+        }
+           cSong = cSong.nextSong;
+            i++;
+            }
+        }
+    }
+    public void playSong(String nm) {
+        Song cSong = fstSong;
+
+        while(true) {
+            if(cSong == null) {
+                System.out.println(nm+" not found in playlist "+Pname+".");
+                break;
+            }
+
+            if(cSong.Sname == nm) {
+                System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+                break;
+            }
+    cSong = cSong.nextSong;
+        }
+    }
+    public void playSong(int index) {
+        Song cSong = fstSong;
+        int i = 0;
+
+        while(true) {
+            if(cSong == null) {
+                System.out.println("Song at Index "+index+" not found in "+Pname+".");
+                break;
+            }
+            if(i == index) {
+                System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+                break;
+            }
+            i++;
+            cSong = cSong.nextSong;
+        }
+    }
+    public void deleteSong(String nm) {
+      Song cSong = fstSong;
+     while(true) {
+        if(cSong == null) {
+           System.out.println(nm+" not found in "+Pname+".");
+           break;
+            }
+        if(cSong.Sname == nm) {
+          System.out.println(nm+" deleted from "+Pname+".");
+            Song prev = cSong.preSong;
+         Song nxt = cSong.nextSong;
+         if(prev == null){
+            fstSong = nxt;
+           }
+            else{
+          prev.nextSong = nxt;
+            }
+            if(nxt != null){
+             nxt.preSong = prev;
+           }
+           break;
+            }
+          cSong = cSong.nextSong;
+        }
+    }
+    void insertIn(Song cSong, Song s) {
+     if(cSong == null) {
+       addSong(s);
+       return;
+        }
+     Song cP = cSong.preSong;
+      if(cP == null) {
+        fstSong = s;
+        }
+       else {
+            cP.nextSong = s;
+            s.preSong = cP;
+        }
+        s.nextSong = cSong;
+        cSong.preSong = s;
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+  Song getLastSong() {
+   Song lastSong = fstSong;
+      while(true) {
+      if(lastSong.nextSong != null) {
+         lastSong = lastSong.nextSong;
+      }
+       else {
+        break;
+      }
+    }
+     return lastSong;
+    }
+}
+
+
+
+
+
+
+
+//9\\
+public class Playlist {
+    public String name;
+    public Song fstSong;
+
+    public Playlist(String n) {
+        name = n;
+        System.out.println("First Playlist created.");
+    }
+    public void info() {
+        System.out.println(name+" has the following songs:");
+        if(fstSong == null) {
+            System.out.println("No songs in "+name+".");
+        }
+        else {
+            Song lastSong = fstSong;
+            int count = 1;
+            while(lastSong != null) {
+          System.out.println("Song-"+count);
+             lastSong.songInfo();
+              count++;
+           lastSong = lastSong.nextSong;
+            }
+        }
+    }
+    public void addSong(Song s) {
+     if(fstSong == null) {
+            fstSong = s;
+        }
+       else {
+          Song lastSong = getLastSong();
+        lastSong.nextSong = s;
+         s.preSong = lastSong;
+        }
+        System.out.println(s.Sname+" added to "+name+".");
+    }
+    public void addSong(Song s, int index) {
+        if(fstSong == null && index == 0) {
+            fstSong = s;
+        }
+        else {
+            int i = 0;
+            Song cSong = fstSong;
+            while(true) {
+                if(i==index) {
+              insertIn(cSong, s);
+                break;
+                }
+                if(cSong == null) {
+                  System.out.println("Cannot add song to Index "+index+".");
+                break;
+                }
+                cSong = cSong.nextSong;
+                i++;
+            }
+        }
+    }
+    public void playSong(String nm) {
+      Song cSong = fstSong;
+      while(true) {
+            if(cSong == null) {
+         System.out.println(nm+" not found in playlist "+name+".");
+           break;
+            }
+        if(cSong.Sname == nm) {
+            System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+          break;
+            }
+        cSong = cSong.nextSong;
+        }
+    }
+    public void playSong(int index) {
+      Song cSong = fstSong;
+        int i = 0;
+        while(true) {
+        if(cSong == null) {
+            System.out.println("Song at Index "+index+" not found in "+name+".");
+             break;
+            }
+            if(i == index) {
+                System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+                break;
+            }
+            i++;
+            cSong = cSong.nextSong;
+        }
+    }
+    public void deleteSong(String nm) {
+     Song cSong = fstSong;
+     while(true) {
+       if(cSong == null) {
+         System.out.println(nm+" not found in "+name+".");
+           break;
+      }
+       if(cSong.Sname == nm) {
+        System.out.println(nm+" deleted from "+name+".");
+           Song prev = cSong.preSong;
+              Song nxt = cSong.nextSong;
+           if(prev == null){
+             fstSong = nxt;
+           }
+           else{
+             prev.nextSong = nxt;
+                }
+           if(nxt != null){
+            nxt.preSong = prev;
+              }
+           break;
+            }
+            cSong = cSong.nextSong;
+        }
+    }
+    void insertIn(Song cSong, Song s) {
+        if(cSong == null) {
+          addSong(s);
+         return;
+        }
+        Song cP = cSong.preSong;
+        if(cP == null) {
+         fstSong = s;
+        }
+        else {
+          cP.nextSong = s;
+          s.preSong = cP;
+        }
+        s.nextSong = cSong;
+        cSong.preSong = s;
+        System.out.println(s.Sname+" added to "+name+".");
+    }
+    Song getLastSong() {
+        Song lastSong = fstSong;
+        while(true) {
+            if(lastSong.nextSong != null) {
+             lastSong = lastSong.nextSong;
+            }
+            else {
+                break;
+            }
+        }
+        return lastSong;
+    }
+    public int totalSong(){
+      Song lastSong = fstSong;
+        int count = 0;
+      while(true) {
+        count ++;
+         if(lastSong.nextSong != null) {
+         lastSong = lastSong.nextSong;
+            }
+          else {
+           break;
+          }
+        }
+        return count;
+    }
+}
+
+
+
+
+
+
+
+
+//10\\
+public class Playlist {
+    public String Pname;
+    public Song fstSong;
+    public Playlist(String n) {
+        Pname = n;
+        System.out.println(n+" created.");
+    }
+    public void info() {
+        System.out.println(Pname+" has the following songs:");
+        if(fstSong == null) {
+            System.out.println("No songs in "+Pname+".");
+        }
+        else {
+            Song lastSong = fstSong;
+            int count = 1;
+            while(lastSong != null) {
+                System.out.println("Song-"+count);
+                lastSong.songInfo();
+                count++;
+
+                lastSong = lastSong.nextSong;
+            }
+        }
+    }
+    public void addSong(Song s) {
+        if(fstSong == null) {
+            fstSong = s;
+        }
+        else {
+            Song lastSong = getLastSong();
+            lastSong.nextSong = s;
+            s.preSong = lastSong;
+        }
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+    public void addSong(Song s, int index) {
+        if(fstSong == null && index == 0) {
+            fstSong = s;
+        }
+        else {
+            int i = 0;
+            Song cSong = fstSong;
+            while(true) {
+                if(i==index) {
+                    insertIn(cSong, s);
+                    break;
+                }
+                if(cSong == null) {
+                    System.out.println("Cannot add song to Index "+index+".");
+                    break;
+                }
+                cSong = cSong.nextSong;
+                i++;
+            }
+        }
+    }
+    public void playSong(String nm) {
+        Song cSong = fstSong;
+        while(true) {
+            if(cSong == null) {
+                System.out.println(nm+" not found in playlist "+Pname+".");
+                break;
+            }
+            if(cSong.Sname == nm) {
+                System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+                break;
+            }
+            cSong = cSong.nextSong;
+        }
+    }
+    public void playSong(int index) {
+        Song cSong = fstSong;
+        int i = 0;
+        while(true) {
+            if(cSong == null) {
+                System.out.println("Song at Index "+index+" not found in "+Pname+".");
+                break;
+            }
+            if(i == index) {
+                System.out.println("Playing "+cSong.Sname+" by "+cSong.Sartist+".");
+                break;
+            }
+            i++;
+            cSong = cSong.nextSong;
+        }
+    }
+    public void deleteSong(String nm) {
+     Song cSong = fstSong;
+      while(true) {
+       if(cSong == null) {
+        System.out.println(nm+" not found in "+Pname+".");
+         break;
+          }
+         if(cSong.Sname == nm) {
+           System.out.println(nm+" deleted from "+Pname+".");
+             Song prev = cSong.preSong;
+             Song nxt = cSong.nextSong;
+            if(prev == null){
+             fstSong = nxt;
+             }
+           else{
+             prev.nextSong = nxt;
+            }
+            if(nxt != null){
+              nxt.preSong = prev;
+           }
+             break;
+            }
+            cSong = cSong.nextSong;
+        }
+    }
+    void insertIn(Song cSong, Song s) {
+        if(cSong == null) {
+            addSong(s);
+            return;
+        }
+        Song cP = cSong.preSong;
+        if(cP == null) {
+            fstSong = s;
+        }
+        else {
+            cP.nextSong = s;
+            s.preSong = cP;
+        }
+        s.nextSong = cSong;
+        cSong.preSong = s;
+        System.out.println(s.Sname+" added to "+Pname+".");
+    }
+    public void merge(Playlist other){
+        Song last = this.getLastSong();
+
+        other.fstSong.preSong = last.preSong;
+        if(last != null){
+            last.nextSong = other.fstSong;
+        }
+        System.out.println("Merge Completed!");
+    }
+    Song getLastSong() {
+        Song lastSong = fstSong;
+        while(true) {
+            if(lastSong.nextSong != null) {
+             lastSong = lastSong.nextSong;
+            }
+            else {
+                break;
+            }
+        }
+        return lastSong;
+    }
+    public int totalSong(){
+        Song lastSong = fstSong;
+        int count = 0;
+        while(true) {
+            count ++;
+            if(lastSong.nextSong != null) {
+                lastSong = lastSong.nextSong;
+            }
+            else {
+                break;
+            }
+        }
+        return count;
+    }
+}

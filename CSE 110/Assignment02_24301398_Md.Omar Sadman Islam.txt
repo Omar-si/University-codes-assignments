@@ -1,0 +1,295 @@
+//Task 1\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter 1st number: ");
+    int n1 = sc.nextInt();
+    System.out.println("Enter 2nd number: ");
+    int n2 = sc.nextInt();
+    System.out.println("Enter 3rd number: ");
+    int n3 = sc.nextInt();
+    if (n1 > n2 && n1>n3) {
+        System.out.println("largest number: " + n1);
+    }
+    else if (n2 > n1 && n2 > n3){
+        System.out.println("largest number: "+ n2);
+        }
+    else if (n3 > n1 && n3 > n2){
+        System.out.println("largest number: "+ n3);
+    }
+  }
+}
+
+
+
+//Task 2\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc =  new Scanner (System.in);
+        int marks = sc.nextInt();
+        if (marks >= 90 && marks <= 100) {
+            System.out.println("Your grade is A");
+        }
+        else if (marks >= 85 && marks <= 89) {
+            System.out.println("Your grade is A-");
+        }
+        else if (marks >= 70 && marks <= 84) {
+            System.out.println("Your grade is B");
+        }
+        else if (marks >= 57 && marks <= 69) {
+            System.out.println("Your grade is C");
+        }
+        else if (marks >= 50 && marks <= 56) {
+            System.out.println("Your grade is D");
+        }
+        else if (marks < 50 ) {
+            System.out.println("Your grade is F");
+        }
+    }
+}
+
+
+
+//Task 3\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+    Scanner sc =  new Scanner (System.in );
+    int number = sc.nextInt();
+    if (number % 5 == 0 && number % 7 == 0) {
+        System.out.println("Divisible by Both");
+    }
+    else if (number % 5 == 0) {
+        System.out.println("Invalid: Divisible by "+ 5 + " Only");
+    }
+    else if (number % 7 == 0) {
+        System.out.println("Invalid: Divisible by "+ 7 + " Only");
+        }
+    else if (number % 5 != 0 && number % 7 != 0) {
+        System.out.println("No");
+        }
+    }
+}
+
+
+
+//Task 4\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sn = new Scanner(System.in);
+        System.out.println("Enter the year: ");
+        int year = sn.nextInt();
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            System.out.println(year + " is a leap year");
+        }
+        else {
+            System.out.println(year + " is not a leap year");
+        }
+    }
+}
+
+
+//Task 5\\
+import  java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+    Scanner sc =  new Scanner (System.in);
+    int number = sc.nextInt();
+    if( number == 0){
+        System.out.println("Number is zero");
+    }
+    if( number < 0) {
+        System.out.println("Number is negative");
+    }
+    if ( number > 0 && number % 2==0) {
+            System.out.println("Number is positive and even");
+    }
+    if ( number >0 && number % 2!=0) {
+        System.out.println("Number is positive and odd");
+    }
+  }
+}
+
+
+
+//Task 6\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        if( N < 0){
+            System.out.println("output: "+2*N);
+        }
+        if( N >= 0 && N <2){
+            System.out.println("output: "+(N+1));
+        }
+        if( N >= 2 && N <5 ){
+            System.out.println("output: "+ ((N*N)-1));
+        }
+        if(N >= 5){
+            System.out.println("output: "+((3*N*N)+2));
+        }
+    }
+}
+
+
+
+//Task 7\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        int salary = sc.nextInt();
+        int age = sc.nextInt();
+        if ( salary < 10000) {
+            System.out.println("Your tax amounts in 0 Tk");
+        }
+        else if ( salary >= 10000 && salary <=20000 && age >18) {
+            System.out.println("Your tax amounts in "+ (salary * 5/100) +" Tk");
+        }
+        else if (salary >= 20000 && age >= 18) {
+            System.out.println("Your tax amounts in " + (salary * 10/100) +" Tk");
+        }
+    }
+}
+
+
+
+//Task 8\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double n1 = sc.nextInt();
+        double n2 = sc.nextInt();
+        double n3 = sc.nextInt();
+        if (n1 > n2 && n1 > n3) {
+            System.out.println("Maximum number is "+n1);
+        }
+        else if (n2 > n1 && n2 > n3) {
+            System.out.println("Maximum number is "+n2);
+        }
+        else if (n3 > n1 && n3 > n2) {
+            System.out.println("Maximum number is "+n3);
+        }
+        if (n1< n2 && n1 < n3) {
+            System.out.println("Minimum number is "+n1);
+        }
+        else if (n2 < n1 && n2 < n3) {
+            System.out.println("Minimum number is "+n2);
+        }
+        else if (n3 < n1 && n3 < n2) {
+            System.out.println("Minimum number is "+n3);
+        }
+    }
+}
+
+
+
+//Task 9\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc =  new Scanner (System.in);
+        int side1 = sc.nextInt();
+        int side2 = sc.nextInt();
+        int side3 = sc.nextInt();
+        if ( side1 == side2 && side1 == side3) {
+            System.out.println("This is a Equilateral triangle");
+        }
+        else if ( side1 != side2 && side2 != side3) {
+            System.out.println("This is a Scalene triangle");
+        }
+        else {
+            System.out.println("This is a Isoscele triangle");
+        }
+    }
+}
+
+
+
+//Task 10\\
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the amount  the customer need to pay(Taka)");
+        int diteHobe = sc.nextInt();
+        System.out.println("Enter the amount , customer gave(Taka)");
+        int customerDise = sc.nextInt();
+        int returnAmount =customerDise - diteHobe;
+        if (returnAmount != 0 && diteHobe < customerDise) {
+            System.out.println("The returned amount is " + returnAmount+ " taka.");
+            if (returnAmount >= 100) {
+                int note100diteHobe = returnAmount / 100;
+                returnAmount = returnAmount % 100;
+                System.out.println("100 taka note: " + note100diteHobe);
+            }
+            if (returnAmount >= 50) {
+                int note50diteHobe = returnAmount / 50;
+                returnAmount = returnAmount % 50;
+                System.out.println("50 taka note: " + note50diteHobe);
+            }
+            if (returnAmount >= 20) {
+                int note20diteHobe = returnAmount / 20;
+                returnAmount = returnAmount % 20;
+                System.out.println("20 taka note: " + note20diteHobe);
+            }
+            if (returnAmount >= 10) {
+                int note10diteHobe = returnAmount / 10;
+                returnAmount = returnAmount % 10;
+                System.out.println("10 taka note: " + note10diteHobe);
+            }
+            if (returnAmount >= 5) {
+                int note5diteHobe = returnAmount / 5;
+                returnAmount = returnAmount % 5;
+                System.out.println("5 taka coin: " + note5diteHobe);
+            }
+            if (returnAmount >= 2) {
+                int note2diteHobe = returnAmount / 2;
+                returnAmount = returnAmount % 2;
+                System.out.println("2 taka coin: " + note2diteHobe);
+            }
+            if (returnAmount == 1) {
+                int note1diteHobe = returnAmount / 1;
+                returnAmount = returnAmount % 1;
+                System.out.println("1 taka coin: " + note1diteHobe);
+            }
+        }
+        else if (returnAmount == 0) {
+            System.out.println("The returned diteHobe is 0 taka.");
+        }
+        else if(diteHobe > customerDise) {
+            System.out.println("The returned amount  is " + Math.abs(returnAmount));
+        }
+    }
+}
+
+
+//Task 11\\
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input the 1st number: ");
+        int num1 = sc.nextInt();
+        System.out.println("Input the 2nd number: ");
+        int num2 = sc.nextInt();
+        System.out.println("Input the 3rd number: ");
+        int num3 = sc.nextInt();
+        if (num1 != num2 && num1 != num3 && num2 != num3 && num2 != num1) {
+            System.out.println("All numbers are different");
+        }
+        if (num1 == num2 || num1 == num3 || num2 == num3 || num2 == num1) {
+            System.out.println("Neither all are equal or different");
+        }
+    }
+}
+
+
+
