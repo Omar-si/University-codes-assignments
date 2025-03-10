@@ -1,0 +1,224 @@
+//Task1\\
+public class Product {
+    private static String prName;
+    private static double price;
+    private static int quantity;
+    private static Boolean Ptoaka;
+    public Product() {
+        this.prName = "Unknown";
+        this.price = 0.0;
+    }
+    public Product(String name, double price) {
+        this.prName = name;
+        this.price = price;
+    }
+    public void displayInfo() {
+        System.out.println("Product Name: " + prName);
+        System.out.println("Price: " + price);
+    }
+    public void displayInfo(Boolean ptoaka) {
+        if (ptoaka == true) {
+            System.out.println("Product Name: " + prName);
+            System.out.println("Price: " + price);
+            System.out.println("Quantity: " + quantity);
+        }
+        if (ptoaka == false) {
+            System.out.println("Product Name: " + prName);
+            System.out.println("Price: " + price);
+        }
+    }
+    public void setQuantity(int poriman) {
+        this.quantity = poriman;
+    }
+    public int getQuantity() {
+        return this.quantity;
+    }
+    public double getPrice(){
+        return this.price;
+    }
+}
+
+
+
+
+//Task2\\
+public class Passenger {
+    public static int no_of_passenger;
+    public static double total_fare=0.0;
+    private String  Pname;
+    private double Pfare;
+    private double bag;
+    public Passenger(String name, double dist) {
+        Pfare+=dist*20;
+        Pname = name;
+        Passenger.no_of_passenger++;
+        Passenger.total_fare += Pfare;
+    }
+    public void passengerDetails(){
+        System.out.println("Name: " + Pname);
+        System.out.println("Fare: " + Pfare+" Tk");
+    }
+    public void storeBaggageWeight(double baggage){
+        bag=baggage;
+        double bag_fare = this.bag*10;
+        Pfare+=bag_fare;
+        Passenger.total_fare+=bag_fare;
+    }
+}
+
+
+
+
+//Task3\\
+public class Book {
+    public static int total_books_sold;
+    public static double total_revenue;
+    private double Dprice;
+    private String Bname;
+    public Book(String name, int disAmount) {
+        Bname=name;
+        this.Dprice=150.0*(1-disAmount/100.0);
+        Book.total_books_sold++;
+        Book.total_revenue+=this.Dprice;
+    }
+    public void bookDetails(){
+        System.out.println("Title: "+Bname);
+        System.out.println("Price after Discount: "+this.Dprice+"Tk");
+    }
+}
+
+
+
+
+//Task4\\
+public class CircleTester {
+    public static void main(String[] args) {
+        System.out.println("Total Circle: "+ Circle.count);
+        Circle c1 = new Circle(4);
+        System.out.println("1---------------");
+        System.out.println("Total Circle: "+ Circle.count);
+        System.out.println("First circle radius: " + c1.getRadius());
+        System.out.println("First circle area: " + c1.area());
+        System.out.println("2---------------");
+        Circle c2 = new Circle(5);
+        System.out.println("Total Circle: "+ Circle.count);
+        System.out.println("Second circle radius: " + c2.getRadius());
+        System.out.println("Second circle area: " + c2.area());
+        System.out.println("3---------------");
+    }
+}
+
+
+
+
+//Task6\\
+public class Cargo {
+    public static double Ccapacity = 10.0;
+    public static int CidCount = 1;
+    public int Cid;
+    public String Ccontents;
+    public double Cweight;
+    public boolean loaded = false;
+    public Cargo(String contents, double weight) {
+        Ccontents = contents;
+        Cweight = weight;
+        Cid = CidCount ++;
+    }
+    public void details() {
+        System.out.print("Cargo ID: "+Cid+", Contents: "+Ccontents+", ");
+        System.out.println("Weight: "+Cweight+", Loaded: "+loaded);
+    }
+    public void load() {
+        if (Cweight > Ccapacity) System.out.println("Cannot load cargo, exceeds weight capacity.");
+        else {
+            loaded = true;
+            Ccapacity -= Cweight;
+            System.out.println("Cargo "+Cid+" loaded for transport.");
+        }
+    }
+    public void unload() {
+        loaded = false;
+        Ccapacity += Cweight;
+        System.out.println("Cargo "+Cid+" unloaded.");
+    }
+    public static double capacity() {
+        return Ccapacity;
+    }
+}
+
+
+
+
+
+//Task7\\
+public class Student {
+    public static int TStudents = 0;
+    public static int CSEStudents = 0;
+    public static int others = 0;
+    public static int SidCount = 1;
+    public int Sid;
+    public String Sname;
+    public double Scgpa;
+    public String Sdept = "CSE";
+    public Student(String name, double cg) {
+        Sname = name;
+        Scgpa = cg;
+        Sid = SidCount ++;
+        TStudents ++;
+        CSEStudents ++;
+    }
+    public Student(String name, double cg, String dept) {
+        Sname = name;
+        Scgpa = cg;
+        Sdept = dept;
+        Sid = SidCount ++;
+        TStudents ++;
+        others ++;
+    }
+    public static void printDetails() {
+        System.out.println("Total Student(s): "+TStudents);
+        System.out.println("CSE Students(s): "+CSEStudents);
+        System.out.println("Other Department Student(s): "+others);
+    }
+    public void individualDetail() {
+        System.out.println("ID: "+Sid);
+        System.out.println("Name: "+Sname);
+        System.out.println("CGPA: "+Scgpa);
+        System.out.println("Department: "+Sdept);
+    }
+}
+
+
+
+//Task8\\
+public class Player {
+    public static int total = 0;
+    public static String[] players = new String[11];
+    public String Pname;
+    public String Pcountry;
+    public int Pnumber;
+    public Player(String name, String country, int number) {
+        Pname = name;
+        Pcountry = country;
+        Pnumber = number;
+        if (total < 11) players[total ++] = name;
+        else System.out.println("Maximum player number crossed.");
+    }
+    public String player_detail() {
+        return "Player Name: "+Pname+"\nJersey Number: "+Pnumber+"\nCountry: "+Pcountry;
+    }
+    public static void info() {
+        System.out.println("Total number of players: "+total);
+        System.out.print("Players enlisted so far: ");
+        for (int i = 0; i < players.length; i ++) {
+            System.out.print(players[i]);
+            if (players[i + 1] == null) {
+                System.out.println();
+                break;
+            }
+            else System.out.print(", ");
+        }
+    }
+}
+
+
